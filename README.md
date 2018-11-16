@@ -2,17 +2,26 @@
 A C++17 library to easily handle code paths for different build modes like Debug and Release.
 
 ## How to use
+By checking if the current build mode is **Release**:
 ```cpp
-#include <BuildMode.hpp>
-#include <iostream>
-
-int main ()
+if constexpr (BuildMode::isRelease)
 {
-	if constexpr (BuildMode::current == BuildMode::Mode::Release)
-		std::cout << "Release mode enabled.\n";
-	else
-		std::cout << "Debug mode enabled.\n";
-		
-	return 0;
+	...
+}
+```
+
+By checking if the current build mode is **Debug**:
+```cpp
+if constexpr (BuildMode::isDebug)
+{
+	...
+}
+```
+
+By doing some boolean stuff with the enum internally used:
+```cpp
+if constexpr (BuildMode::current == someCondition)
+{
+	...
 }
 ```
