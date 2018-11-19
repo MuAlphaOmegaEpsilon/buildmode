@@ -6,7 +6,7 @@ namespace BuildMode
 {
 	/// An enumeration based on boolean values that provides only two possible scenarios: Debug and Release.
 	/// There is no need to have multiple build mode scenarios, since cases like MinSizeRel falls under one
-	/// of the specified ones (Release in this particular case).
+	/// of the two specified below.
 	enum
 	{
 		Release = false,
@@ -24,9 +24,9 @@ namespace BuildMode
 							#endif
 
 	/// Specifies at compile time if the build mode selected is considered "Release".
-	constexpr bool isReleaseMode = (Current == Release);
+	constexpr bool isRelease = (current == Release);
 	/// Specifies at compile time if the build mode selected is considered "Debug".
-	constexpr bool isDebugMode = (Current == Debug);
+	constexpr bool isDebug = (current == Debug);
 }
 
 
