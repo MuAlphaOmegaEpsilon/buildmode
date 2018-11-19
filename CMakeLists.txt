@@ -45,11 +45,23 @@ OPTION (TEST "Is library testing enabled?" OFF)
 ######################HintingEnabled#########################################################
 IF (TEST)
 	ENABLE_TESTING ()
-	ADD_EXECUTABLE (BaseCase "tests/baseCase.cpp")
-	TARGET_LINK_LIBRARIES (BaseCase BuildMode)
-	ADD_TEST (BaseCase BaseCase)		
-	SET_TARGET_PROPERTIES 	(BaseCase PROPERTIES
-            				CXX_STANDARD 17
-            				CMAKE_CXX_STANDARD_REQUIRED ON
-							CXX_EXTENSIONS OFF)
+
+	IF (CMAKE_BUILD_TYPE STREQUAL Debug)
+		ADD_EXECUTABLE (DebugMode "tests/DebugMode.cpp")
+		TARGET_LINK_LIBRARIES (DebugMode BuildMode)
+		ADD_TEST (DebugMode DebugMode)
+		SET_TARGET_PROPERTIES 	(DebugMode PROPERTIES
+								CXX_STANDARD 17
+								CMAKE_CXX_STANDARD_REQUIRED ON
+								CXX_EXTENSIONS OFF)
+
+	ELSEIF (CMAKE_BUILD_TYPE STREQUAL Release)
+		ADD_EXECUTABLE (ReleaseMode "tests/ReleaseMode.cpp")
+		TARGET_LINK_LIBRARIES (ReleaseMode BuildMode)
+		ADD_TEST (ReleaseMode ReleaseMode)	
+		SET_TARGET_PROPERTIES 	(ReleaseMode PROPERTIES
+								CXX_STANDARD 17
+								CMAKE_CXX_STANDARD_REQUIRED ON
+								CXX_EXTENSIONS OFF)
+		ENDIF ()
 ENDIF ()
