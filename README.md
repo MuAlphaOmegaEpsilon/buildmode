@@ -17,11 +17,3 @@ if constexpr (BuildMode::isDebug)
 	...
 }
 ```
-
-By doing some boolean stuff with the enum internally used:
-```cpp
-if constexpr (BuildMode::current == someCondition)
-{
-	...
-}
-```
