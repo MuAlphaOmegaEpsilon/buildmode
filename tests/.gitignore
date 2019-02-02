@@ -1,0 +1,7 @@
+# Ignore both root files and root directories...
+/*
+
+# ...except these files down here...
+!/debug_mode.cpp
+!/release_mode.cpp
+!/.gitignore

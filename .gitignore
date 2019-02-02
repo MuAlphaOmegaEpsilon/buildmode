@@ -6,7 +6,7 @@
 !/.git
 
 # ...and except these files down here...
-!/BuildMode.hpp
+!/buildmode.hpp
 !/CMakeLists.txt
 !/Doxyfile
 !/LICENSE

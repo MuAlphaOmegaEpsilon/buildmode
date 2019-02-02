@@ -1,7 +1,5 @@
-#include <cstdlib>
-#include <BuildMode.hpp>
-
-using namespace std;
+#include <stdlib.h>
+#include <buildmode.hpp>
 
 int main ()
 {

@@ -1,5 +1,5 @@
-#include <cstdlib>
-#include <BuildMode.hpp>
+#include <stdlib.h>
+#include <buildmode.hpp>
 
 int main ()
 {

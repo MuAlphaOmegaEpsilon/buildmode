@@ -47,7 +47,7 @@ IF (TEST)
 	ENABLE_TESTING ()
 
 	IF (CMAKE_BUILD_TYPE STREQUAL Debug)
-		ADD_EXECUTABLE (DebugMode "tests/DebugMode.cpp")
+		ADD_EXECUTABLE (DebugMode "${CMAKE_CURRENT_SOURCE_DIR}/tests/debug_mode.cpp")
 		TARGET_LINK_LIBRARIES (DebugMode BuildMode)
 		ADD_TEST (DebugMode DebugMode)
 		SET_TARGET_PROPERTIES 	(DebugMode PROPERTIES
@@ -56,7 +56,7 @@ IF (TEST)
 								CXX_EXTENSIONS OFF)
 
 	ELSEIF (CMAKE_BUILD_TYPE STREQUAL Release)
-		ADD_EXECUTABLE (ReleaseMode "tests/ReleaseMode.cpp")
+		ADD_EXECUTABLE (ReleaseMode "${CMAKE_CURRENT_SOURCE_DIR}/tests/release_mode.cpp")
 		TARGET_LINK_LIBRARIES (ReleaseMode BuildMode)
 		ADD_TEST (ReleaseMode ReleaseMode)	
 		SET_TARGET_PROPERTIES 	(ReleaseMode PROPERTIES

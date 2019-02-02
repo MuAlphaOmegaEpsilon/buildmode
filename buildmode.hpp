@@ -29,6 +29,4 @@ namespace BuildMode
 	constexpr bool isDebug = (current == Debug);
 }
 
-
-
 #endif
