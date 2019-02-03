@@ -10,8 +10,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 3.9.2)
 #                                   PROJECT                                   #
 ###############################################################################
 PROJECT (buildmode VERSION 1.0.0 LANGUAGES CXX 
-		DESCRIPTION "A C++17 library to easily handle code paths for \
-					different build modes like Debug and Release."
+		DESCRIPTION "A C++17 library to easily handle code paths for different build modes like Debug and Release."
 		HOMEPAGE_URL "https://github.com/MuAlphaOmegaEpsilon/BuildMode")
 
 
