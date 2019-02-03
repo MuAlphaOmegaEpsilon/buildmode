@@ -4,4 +4,5 @@
 # ...except these files down here...
 !/debug_mode.cpp
 !/release_mode.cpp
+!/run.sh
 !/.gitignore
