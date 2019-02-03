@@ -5,4 +5,4 @@ compiler:
   - gcc
 
 script:
-- ./runTests.sh
+- ./tests/run.sh
