@@ -15,9 +15,9 @@ function testMode
 	fi
 	mkdir "$mode" # Create directory with the name of the mode
 	cd "$mode" # Go inside the newly created directory
+	echo -e "${ORANGE}TESTING FOR $MODE MODE$RC"
 	cmake ../.. -DTEST=ON -DCMAKE_BUILD_TYPE="$mode" > /dev/null 2>&1 # Create build files
 	make > /dev/null 2>&1 # Build test suite for this mode
-	echo -e "${ORANGE}TESTING FOR $MODE MODE$RC"
 	make test # Start testing
 	result=$? # Save result of the testing
 	cd .. # Go back to the parent directory
