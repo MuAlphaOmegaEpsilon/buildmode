@@ -11,6 +11,5 @@
 !/Doxyfile
 !/LICENSE
 !/README.md
-!/runTests.sh
 !/.gitignore
 !/.travis.yml
