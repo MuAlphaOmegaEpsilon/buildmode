@@ -3,10 +3,7 @@
 
 int main ()
 {
-	using namespace BuildMode;
-
-	if constexpr (isDebug && !isRelease && current == Debug && current != Release)
+	if constexpr (BuildMode::isDebug && !BuildMode::isRelease)
 		return EXIT_SUCCESS;
-
 	return EXIT_FAILURE;
 }
