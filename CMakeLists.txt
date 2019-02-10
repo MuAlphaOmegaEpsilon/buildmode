@@ -9,7 +9,9 @@ CMAKE_MINIMUM_REQUIRED (VERSION 3.9.2)
 ###############################################################################
 #                                   PROJECT                                   #
 ###############################################################################
-PROJECT (buildmode VERSION 1.0.0 LANGUAGES CXX 
+PROJECT (buildmode 
+		VERSION 1.0.0 
+		LANGUAGES CXX 
 		DESCRIPTION "A C++17 library to easily handle code paths for different build modes like Debug and Release.")
 
 
@@ -45,24 +47,17 @@ OPTION (TEST "Is library testing enabled?" OFF)
 IF (TEST)
 	ENABLE_TESTING ()
 
-	IF (CMAKE_BUILD_TYPE STREQUAL Debug)
-		ADD_EXECUTABLE (debug_mode "${CMAKE_CURRENT_SOURCE_DIR}/tests/debug_mode.cpp")
-		TARGET_LINK_LIBRARIES (debug_mode buildmode)
-		ADD_TEST (Debug debug_mode)
-		SET_TARGET_PROPERTIES 	(debug_mode PROPERTIES
-								CXX_STANDARD 17
-								CMAKE_CXX_STANDARD_REQUIRED ON
-								CXX_EXTENSIONS OFF
-								CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -Wextra")
+	SET (CMAKE_BUILD_TYPE "")
 
-	ELSEIF (CMAKE_BUILD_TYPE STREQUAL Release)
-		ADD_EXECUTABLE (release_mode "${CMAKE_CURRENT_SOURCE_DIR}/tests/release_mode.cpp")
-		TARGET_LINK_LIBRARIES (release_mode buildmode)
-		ADD_TEST (Release release_mode)	
-		SET_TARGET_PROPERTIES 	(release_mode PROPERTIES
-								CXX_STANDARD 17
-								CMAKE_CXX_STANDARD_REQUIRED ON
-								CXX_EXTENSIONS OFF
-								CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -Wextra")
-		ENDIF ()
+	ADD_EXECUTABLE (isDebug "${CMAKE_CURRENT_SOURCE_DIR}/tests/debug_mode.cpp")
+	ADD_EXECUTABLE (isRelease "${CMAKE_CURRENT_SOURCE_DIR}/tests/release_mode.cpp")
+
+	TARGET_LINK_LIBRARIES (isDebug buildmode)
+	TARGET_LINK_LIBRARIES (isRelease buildmode)
+
+	TARGET_COMPILE_OPTIONS (isDebug PRIVATE -g -std=c++17 -Wall -Wextra -Werror -pedantic)
+	TARGET_COMPILE_OPTIONS (isRelease PRIVATE -DNDEBUG -O3 -std=c++17 -Wall -Wextra -Werror -pedantic)
+
+	ADD_TEST (constexpr_bool_isDebug isDebug)
+	ADD_TEST (constexpr_bool_isRelease isRelease)
 ENDIF ()

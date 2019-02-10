@@ -1,8 +1,33 @@
 language: cpp
 
-compiler:
-  - clang
-  - gcc-8.2
+cache:
+  ccache: true
+  directories:
+    - $HOME/.ccache
+
+env:
+  global:
+    - USE_CCACHE=1
+    - CCACHE_COMPRESS=1
+    - CCACHE_MAXSIZE=200M
+    - CCACHE_CPP2=1
+
+matrix:
+  include:
+
+    # 1/ Linux Clang Builds
+    - os: linux
+      compiler: clang
+
+    - os: linux
+      compiler: g++
+      addons:
+        apt:
+          sources: 'ubuntu-toolchain-r-test'
+          packages: g++-8
+      env: RELINK_GCC=true
 
 script:
-- ./tests/run.sh
+  - if [[ "$RELINK_GCC" ]]; then sudo rm /usr/bin/g++; fi
+  - if [[ "$RELINK_GCC" ]]; then sudo ln -s /usr/bin/g++-8 /usr/bin/g++; fi
+  - ./tests/run.sh
