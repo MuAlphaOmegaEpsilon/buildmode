@@ -5,17 +5,9 @@ cache:
   directories:
     - $HOME/.ccache
 
-env:
-  global:
-    - USE_CCACHE=1
-    - CCACHE_COMPRESS=1
-    - CCACHE_MAXSIZE=200M
-    - CCACHE_CPP2=1
-
 matrix:
   include:
 
-    # 1/ Linux Clang Builds
     - os: linux
       compiler: clang
 
@@ -26,6 +18,10 @@ matrix:
           sources: 'ubuntu-toolchain-r-test'
           packages: g++-8
       env: RELINK_GCC=true
+
+    - os: osx
+
+    - os: windows
 
 script:
   - if [[ "$RELINK_GCC" ]]; then sudo rm /usr/bin/g++; fi

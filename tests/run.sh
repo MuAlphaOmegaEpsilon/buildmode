@@ -16,15 +16,11 @@ mkdir build
 (
 	cd build
 	cmake ../.. -DTEST=ON
-	echo
-	cat ./CMakeFiles/isDebug.dir/flags.make
-	echo 
-	make VERBOSE=1
+	make
 	echo -e "\\n${ORANGE}TESTING BUILDMODE LIBRARY$RC"
 	make test 
 )
 
 result=$?
 rm -r build
-echo 
 exit "$result"
