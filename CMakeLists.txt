@@ -55,8 +55,13 @@ IF (TEST)
 	TARGET_LINK_LIBRARIES (isDebug buildmode)
 	TARGET_LINK_LIBRARIES (isRelease buildmode)
 
-	TARGET_COMPILE_OPTIONS (isDebug PRIVATE -g -std=c++17 -Wall -Wextra -Werror -pedantic)
-	TARGET_COMPILE_OPTIONS (isRelease PRIVATE -DNDEBUG -O3 -std=c++17 -Wall -Wextra -Werror -pedantic)
+	IF (MSVC)
+		TARGET_COMPILE_OPTIONS (isDebug PRIVATE /DEBUG /std:c++17 /W4)
+		TARGET_COMPILE_OPTIONS (isRelease PRIVATE /Ox /std:c++17 /W4)
+	ELSE
+		TARGET_COMPILE_OPTIONS (isDebug PRIVATE -g -std=c++17 -Wall -Wextra -Werror -pedantic)
+		TARGET_COMPILE_OPTIONS (isRelease PRIVATE -DNDEBUG -O3 -std=c++17 -Wall -Wextra -Werror -pedantic)
+	ENDIF ()
 
 	ADD_TEST (constexpr_bool_isDebug isDebug)
 	ADD_TEST (constexpr_bool_isRelease isRelease)

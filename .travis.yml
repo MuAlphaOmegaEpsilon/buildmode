@@ -1,10 +1,5 @@
 language: cpp
 
-cache:
-  ccache: true
-  directories:
-    - $HOME/.ccache
-
 matrix:
   include:
 
