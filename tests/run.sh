@@ -15,10 +15,19 @@ mkdir build
 
 (
 	cd build
-	cmake ../.. -DTEST=ON
-	make
+
+	if [[ ! -z ${CODECOV_TOKEN:-} ]]; then 
+		COVERAGE_FLAG=-coverage		
+	else
+		COVERAGE_FLAG= 
+	fi
+	cmake ../.. -DTEST=ON -DCOVERAGE_FLAG="${COVERAGE_FLAG}"
+	cmake --build .
 	echo -e "\\n${ORANGE}TESTING BUILDMODE LIBRARY$RC"
-	make test 
+	ctest
+	if [[ ! -z ${CODECOV_TOKEN:-} ]]; then 
+		bash <(curl -s https://codecov.io/bash); 
+	fi
 )
 
 result=$?

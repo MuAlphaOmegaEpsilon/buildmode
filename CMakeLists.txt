@@ -44,6 +44,7 @@ OPTION (TEST "Is library testing enabled?" OFF)
 ###############################################################################
 #                                    TESTS                                    #
 ###############################################################################
+
 IF (TEST)
 	ENABLE_TESTING ()
 
@@ -52,16 +53,17 @@ IF (TEST)
 	ADD_EXECUTABLE (isDebug "${CMAKE_CURRENT_SOURCE_DIR}/tests/debug_mode.cpp")
 	ADD_EXECUTABLE (isRelease "${CMAKE_CURRENT_SOURCE_DIR}/tests/release_mode.cpp")
 
-	TARGET_LINK_LIBRARIES (isDebug buildmode)
-	TARGET_LINK_LIBRARIES (isRelease buildmode)
-
+	TARGET_LINK_LIBRARIES (isDebug buildmode ${COVERAGE_FLAG})
+	TARGET_LINK_LIBRARIES (isRelease buildmode ${COVERAGE_FLAG})
+	
 	IF (MSVC)
-		TARGET_COMPILE_OPTIONS (isDebug PRIVATE /DEBUG /std:c++17 /W4)
-		TARGET_COMPILE_OPTIONS (isRelease PRIVATE /Ox /std:c++17 /W4)
-	ELSE
-		TARGET_COMPILE_OPTIONS (isDebug PRIVATE -g -std=c++17 -Wall -Wextra -Werror -pedantic)
-		TARGET_COMPILE_OPTIONS (isRelease PRIVATE -DNDEBUG -O3 -std=c++17 -Wall -Wextra -Werror -pedantic)
+	TARGET_COMPILE_OPTIONS (isDebug PRIVATE /std:c++17)
+		TARGET_COMPILE_OPTIONS (isRelease PRIVATE /std:c++17 /DNDEBUG)
+	ELSE ()
+		TARGET_COMPILE_OPTIONS (isDebug PRIVATE -std=c++17 -g -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
+		TARGET_COMPILE_OPTIONS (isRelease PRIVATE -std=c++17 -DNDEBUG -O3 -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
 	ENDIF ()
+
 
 	ADD_TEST (constexpr_bool_isDebug isDebug)
 	ADD_TEST (constexpr_bool_isRelease isRelease)
