@@ -21,7 +21,7 @@ matrix:
     - os: windows
 
 script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" && "$CXX" == "g++" ]; then sudo rm /usr/bin/g++ /usr/bin/gcov; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" && "$CXX" == "g++" ]; then sudo ln -s /usr/bin/g++-8 /usr/bin/g++; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" && "$CXX" == "g++" ]; then sudo ln -s /usr/bin/gcov-8 /usr/bin/gcov; fi
+  - if ["$TRAVIS_OS_NAME"=="linux"] && ["$CXX"=="g++"]; then sudo rm /usr/bin/g++ /usr/bin/gcov; fi
+  - if ["$TRAVIS_OS_NAME"=="linux"] && ["$CXX"=="g++"]; then sudo ln -s /usr/bin/g++-8 /usr/bin/g++; fi
+  - if ["$TRAVIS_OS_NAME"=="linux"] && ["$CXX"=="g++"]; then sudo ln -s /usr/bin/gcov-8 /usr/bin/gcov; fi
   - ./tests/run.sh
