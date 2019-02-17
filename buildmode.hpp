@@ -1,3 +1,10 @@
+/**
+ * @brief A C++17 library to easily handle code paths for Debug and Release at compile time. 
+ * @file buildmode.hpp
+ * @author Tommaso Bonvicini <tommasobonvicini@gmail.com> https://github.com/MuAlphaOmegaEpsilon/buildmode
+ * @date 17-02-2019
+ */
+
 #ifndef BUILDMODE_HPP
 #define BUILDMODE_HPP
 
