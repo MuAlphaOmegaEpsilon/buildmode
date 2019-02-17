@@ -8,7 +8,6 @@
 # ...and except these files down here...
 !/buildmode.hpp
 !/CMakeLists.txt
-!/Doxyfile
 !/LICENSE
 !/README.md
 !/.gitignore
