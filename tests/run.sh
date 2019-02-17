@@ -21,7 +21,7 @@ mkdir build
 	else
 		COVERAGE_FLAG= 
 	fi
-	cmake ../.. -DTEST=ON -DCOVERAGE_FLAG="${COVERAGE_FLAG}"
+	cmake ../.. -DBUILD_TESTING=ON -DCOVERAGE_FLAG="${COVERAGE_FLAG}"
 	cmake --build .
 	echo -e "\\n${ORANGE}TESTING BUILDMODE LIBRARY$RC"
 	ctest

@@ -3,21 +3,26 @@
 A C++17 library to easily handle code paths for Debug and Release at compile time.
 
 ## How to use
-By checking if the current build mode is **Release**:
 ```cpp
 if constexpr (BuildMode::isRelease)
 {
+	// CODE PRESENT IN BINARY ONLY IN RELEASE MODE
+	...
+}
+
+if constexpr (BuildMode::isDebug)
+{
+	// CODE PRESENT IN BINARY ONLY IN RELEASE MODE
 	...
 }
 ```
 
-By checking if the current build mode is **Debug**:
-```cpp
-if constexpr (BuildMode::isDebug)
-{
-	...
-}
+## Library testing
+If you wish to test the library on your machine, just launch:
+```bash
+./tests/run.sh
 ```
+Note that this library's *CMakeLists.txt* won't compile testing sources unless `BUILD_TESTING=ON`.
 
 ## License
 This library is available to anybody free of charge, under the terms of MIT License (see LICENSE.md).

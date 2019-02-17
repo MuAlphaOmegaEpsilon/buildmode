@@ -44,12 +44,9 @@ OPTION (TEST "Is library testing enabled?" OFF)
 ###############################################################################
 #                                    TESTS                                    #
 ###############################################################################
-
-IF (TEST)
-	ENABLE_TESTING ()
-
-	SET (CMAKE_BUILD_TYPE "")
-
+IF (BUILD_TESTING)
+	ENABLE_TESTING()
+	
 	ADD_EXECUTABLE (isDebug "${CMAKE_CURRENT_SOURCE_DIR}/tests/debug_mode.cpp")
 	ADD_EXECUTABLE (isRelease "${CMAKE_CURRENT_SOURCE_DIR}/tests/release_mode.cpp")
 
@@ -57,7 +54,7 @@ IF (TEST)
 	TARGET_LINK_LIBRARIES (isRelease buildmode ${COVERAGE_FLAG})
 	
 	IF (MSVC)
-	TARGET_COMPILE_OPTIONS (isDebug PRIVATE /std:c++17)
+		TARGET_COMPILE_OPTIONS (isDebug PRIVATE /std:c++17)
 		TARGET_COMPILE_OPTIONS (isRelease PRIVATE /std:c++17 /DNDEBUG)
 	ELSE ()
 		TARGET_COMPILE_OPTIONS (isDebug PRIVATE -std=c++17 -g -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
