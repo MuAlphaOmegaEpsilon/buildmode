@@ -54,6 +54,6 @@ IF (BUILD_TESTING)
 	ENDIF ()
 
 
-	ADD_TEST (constexpr_bool_isDebug isDebug)
-	ADD_TEST (constexpr_bool_isRelease isRelease)
+	ADD_TEST ([BUILDMODE]isDebug isDebug)
+	ADD_TEST ([BUILDMODE]isRelease isRelease)
 ENDIF ()

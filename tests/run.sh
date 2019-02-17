@@ -24,7 +24,7 @@ mkdir build
 	cmake ../.. -DBUILD_TESTING=ON -DCOVERAGE_FLAG="${COVERAGE_FLAG}"
 	cmake --build .
 	echo -e "\\n${ORANGE}TESTING BUILDMODE LIBRARY$RC"
-	ctest
+	ctest -j2
 	if [[ ! -z ${CODECOV_TOKEN:-} ]]; then 
 		bash <(curl -s https://codecov.io/bash); 
 	fi
