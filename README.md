@@ -6,15 +6,23 @@ A C++17 library to easily handle code paths for Debug and Release at compile tim
 ```cpp
 if constexpr (BuildMode::isRelease)
 {
-	// CODE PRESENT IN BINARY ONLY IN RELEASE MODE
+	// CODE STRIPPED WHEN NOT IN RELEASE
 	...
 }
 
 if constexpr (BuildMode::isDebug)
 {
-	// CODE PRESENT IN BINARY ONLY IN RELEASE MODE
+	// CODE STRIPPED WHEN NOT IN DEBUG
 	...
 }
+```
+
+## CMake integration
+Add these lines to your *CMakeLists.txt*:
+```cmake
+ADD_SUBDIRECTORY (relative_path_to/buildmode)
+TARGET_LINK_LIBRARIES (your_target_name buildmode)
+
 ```
 
 ## Library testing
