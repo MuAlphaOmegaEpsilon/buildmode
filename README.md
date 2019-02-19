@@ -1,6 +1,12 @@
-# BuildMode [![Travis CI](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode.svg?branch=master)](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode/) [![codecov](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode/branch/master/graph/badge.svg)](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode) ![MIT](https://img.shields.io/badge/license-MIT-blue.svg) [![GitHub](https://img.shields.io/badge/repo-github-green.svg)](https://github.com/MuAlphaOmegaEpsilon/buildmode)
+# BuildMode 
 
 A C++17 library to easily handle code paths for Debug and Release at compile time.
+
+[![Travis CI](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode.svg?branch=master)](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode/) 
+[![codecov](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode/branch/master/graph/badge.svg)](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode) 
+![MIT](https://img.shields.io/badge/license-MIT-blue.svg) 
+[![GitHub](https://img.shields.io/badge/repo-github-green.svg)](https://github.com/MuAlphaOmegaEpsilon/buildmode)
+![GitHub repo size in bytes](https://img.shields.io/github/repo-size/MuAlphaOmegaEpsilon/buildmode.svg?colorB=%23ff0000&label=size)
 
 ## How to use
 ```cpp
@@ -22,7 +28,6 @@ Add these lines to your *CMakeLists.txt*:
 ```cmake
 ADD_SUBDIRECTORY (relative_path_to/buildmode)
 TARGET_LINK_LIBRARIES (your_target_name buildmode)
-
 ```
 
 ## Library testing
