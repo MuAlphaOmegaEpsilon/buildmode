@@ -1,6 +1,6 @@
 # BuildMode 
 
-A C++17 library to easily handle code paths for Debug and Release at compile time.
+A C++11 library to easily handle code paths for Debug and Release at compile time.
 
 [![Travis CI](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode.svg?branch=master)](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode/) 
 [![codecov](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode/branch/master/graph/badge.svg)](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode) 
@@ -10,6 +10,21 @@ A C++17 library to easily handle code paths for Debug and Release at compile tim
 
 ## How to use
 ```cpp
+// C++11 version should be easily handled by basically every serious compiler 
+if (BuildMode::isRelease)
+{
+	// COMPILER SHOULD STRIP WHEN NOT IN RELEASE
+	...
+}
+
+if (BuildMode::isDebug)
+{
+	// COMPILER SHOULD STRIP WHEN NOT IN DEBUG
+	...
+}
+
+
+// C++17 version guarantees compile-time evaluation
 if constexpr (BuildMode::isRelease)
 {
 	// CODE STRIPPED WHEN NOT IN RELEASE
