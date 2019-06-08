@@ -12,7 +12,7 @@ CMAKE_MINIMUM_REQUIRED (VERSION 3.9.2)
 PROJECT (buildmode 
 		VERSION 1.0.0 
 		LANGUAGES CXX 
-		DESCRIPTION "A C++17 library to easily handle code paths for different build modes like Debug and Release.")
+		DESCRIPTION "A C++11 library to easily handle code paths for different build modes like Debug and Release.")
 
 
 
@@ -46,11 +46,11 @@ IF (BUILD_TESTING)
 	TARGET_LINK_LIBRARIES (isRelease buildmode ${COVERAGE_FLAG})
 	
 	IF (MSVC)
-		TARGET_COMPILE_OPTIONS (isDebug PRIVATE /std:c++17)
-		TARGET_COMPILE_OPTIONS (isRelease PRIVATE /std:c++17 /DNDEBUG)
+		TARGET_COMPILE_OPTIONS (isDebug PRIVATE /std:c++11)
+		TARGET_COMPILE_OPTIONS (isRelease PRIVATE /std:c++11 /DNDEBUG)
 	ELSE ()
-		TARGET_COMPILE_OPTIONS (isDebug PRIVATE -std=c++17 -g -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
-		TARGET_COMPILE_OPTIONS (isRelease PRIVATE -std=c++17 -DNDEBUG -O3 -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
+		TARGET_COMPILE_OPTIONS (isDebug PRIVATE -std=c++11 -g -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
+		TARGET_COMPILE_OPTIONS (isRelease PRIVATE -std=c++11 -DNDEBUG -O3 -Wall -Wextra -Werror -pedantic ${COVERAGE_FLAG})
 	ENDIF ()
 
 
