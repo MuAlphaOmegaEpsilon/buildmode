@@ -1,28 +1,23 @@
 language: cpp
 
+dist: xenial
 sudo: false
 
 matrix:
   include:
 
     - os: linux
-      compiler: clang        
+      compiler: clang  
 
     - os: linux
       compiler: g++
       env: CODECOV_TOKEN="785031cb-d414-4550-8c86-ae4bf6ecd5b4"
-      addons:
-        apt:
-          sources: 'ubuntu-toolchain-r-test'
-          packages: g++-8
 
     - os: osx
 
     - os: windows
 
 script:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then sudo rm /usr/bin/g++; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then sudo rm /usr/bin/gcov; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then sudo ln -s /usr/bin/g++-8 /usr/bin/g++; fi
-  - if [ "$TRAVIS_OS_NAME" == "linux" ] && [ "$CXX" == "g++" ]; then sudo ln -s /usr/bin/gcov-8 /usr/bin/gcov; fi
+  - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo rm /usr/bin/gcov; fi
+  - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
   - ./tests/run.sh

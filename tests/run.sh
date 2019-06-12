@@ -15,7 +15,6 @@ mkdir build
 
 (
 	cd build
-
 	if [[ ! -z ${CODECOV_TOKEN:-} ]]; then 
 		COVERAGE_FLAG=-coverage		
 	else
