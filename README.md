@@ -53,7 +53,7 @@ If you wish to test the library on your machine, just launch:
 Note that this library's *CMakeLists.txt* won't compile testing sources unless `BUILD_TESTING=ON`: use this feature to choose when to spend time building tests and when not.
 
 ## License
-This library is available to anybody free of charge, under the terms of MIT License (see LICENSE.md).
+This library is available to anybody free of charge, under the terms of MIT License (see [LICENSE](./LICENSE)).
 
 ## Author
  [<img src="https://avatars0.githubusercontent.com/u/26225010?s=460&v=4" alt="MuAlphaOmegaEpsilon" width=300 style="border-radius:50%;">](https://github.com/MuAlphaOmegaEpsilon)
