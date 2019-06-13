@@ -17,6 +17,7 @@ matrix:
       addons:
       sonarcloud:
         organization: "mualphaomegaepsilon-github"
+        token: "$SONAR_TOKEN"
 
     - os: osx
 
@@ -25,4 +26,5 @@ matrix:
 script:
   - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo rm /usr/bin/gcov; fi
   - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
+  - sonar-scanner
   - ./tests/run.sh
