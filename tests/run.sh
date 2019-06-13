@@ -21,7 +21,7 @@ mkdir build
 		COVERAGE_FLAG= 
 	fi
 	cmake ../.. -DBUILD_TESTING=ON -DCOVERAGE_FLAG="${COVERAGE_FLAG}"
-	cmake --build .
+	cmake --build . -j2
 	echo -e "\\n${ORANGE}TESTING BUILDMODE LIBRARY$RC"
 	ctest -j2
 	if [[ ! -z ${CODECOV_TOKEN:-} ]]; then 
