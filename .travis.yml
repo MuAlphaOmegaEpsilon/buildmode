@@ -15,9 +15,8 @@ matrix:
         - CODECOV_TOKEN="785031cb-d414-4550-8c86-ae4bf6ecd5b4"
         - SONAR_SCANNER="true"
       addons:
-      sonarcloud:
-        organization: "mualphaomegaepsilon-github"
-        token: "$SONAR_TOKEN"
+        sonarcloud:
+          organization: "mualphaomegaepsilon-github"
 
     - os: osx
 
