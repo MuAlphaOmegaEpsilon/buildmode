@@ -14,9 +14,9 @@ matrix:
       env: 
         - CODECOV_TOKEN="785031cb-d414-4550-8c86-ae4bf6ecd5b4"
         - SONAR_SCANNER="true"
-        addons:
-        sonarcloud:
-          organization: "mualphaomegaepsilon-github"
+      addons:
+      sonarcloud:
+        organization: "mualphaomegaepsilon-github"
 
     - os: osx
 
@@ -25,5 +25,4 @@ matrix:
 script:
   - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo rm /usr/bin/gcov; fi
   - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
-  - if [ ! -z "${SONAR_SCANNER:-}" ]; then sonar-scanner -Dsonar.projectKey=MuAlphaOmegaEpsilon_buildmode; fi
   - ./tests/run.sh
