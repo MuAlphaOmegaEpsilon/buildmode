@@ -27,5 +27,5 @@ script:
   - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
   - if [ ! -z "${SONAR_SCANNER:-}" ]; then cmake . -DBUILD_TESTING=ON; fi
   - if [ ! -z "${SONAR_SCANNER:-}" ]; then build-wrapper-linux-x86-64 --out-dir bw-output make all; fi
-  - if [ ! -z "${SONAR_SCANNER:-}" ]; then sonar-scanner; fi
+  - if [ ! -z "${SONAR_SCANNER:-}" ]; then sonar-scanner -X; fi
   - ./tests/run.sh
