@@ -25,21 +25,9 @@ jobs:
   include:
 
     - stage: test
-      # Soft-link gcov to the more up-to-date gcov-5
-      name: update gcov
       script: if [ ! -z "${COVERAGE_FLAG:-}" ]; then sudo rm /usr/bin/gcov && ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
-      
-      name: setup
       script: ./tests/setup.sh
-      
-      name: build
       script: ./tests/build.sh
-      
-      name: run
       script: ./tests/run.sh
-      
-      name: quality scan
       script: if [! -z "${SONARCLOUD_ENABLED}" ]; then sonar-scanner; fi
-      
-      name: coverage upload
       script: if [ ! -z "${COVERAGE_FLAG:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
