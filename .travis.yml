@@ -13,7 +13,6 @@ matrix:
       compiler: g++
       env: 
         - COVERAGE_FLAG="-DCOVERAGE_FLAG=-coverage"
-        - SONARCLOUD_ENABLED
       addons:
         sonarcloud:
           organization: "mualphaomegaepsilon-github"
@@ -27,5 +26,5 @@ script:
   - shellcheck tests/setup.sh && ./tests/setup.sh
   - shellcheck tests/build.sh && ./tests/build.sh
   - shellcheck tests/run.sh && ./tests/run.sh
-  - if [! -z "${SONARCLOUD_ENABLED:-}" ]; then sonar-scanner; fi
   - if [ ! -z "${COVERAGE_FLAG:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
+  - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
