@@ -21,7 +21,7 @@ matrix:
     - os: windows
 
 script:
-  - set -euf
+  - set -e
   - if [ -n "${COVERAGE:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
   - shellcheck tests/setup.sh && ./tests/setup.sh
   - shellcheck tests/build.sh && ./tests/build.sh
