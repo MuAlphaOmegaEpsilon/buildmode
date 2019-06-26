@@ -1,6 +1,7 @@
 language: cpp
 
 dist: xenial
+sudo: false
 
 matrix:
   include:
@@ -23,8 +24,8 @@ matrix:
 
 script:
   - if [ ! -z "${COVERAGE_FLAG:-}" ]; then sudo rm /usr/bin/gcov && ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
-  - ./tests/setup.sh
-  - ./tests/build.sh
-  - ./tests/run.sh
-  - if [! -z "${SONARCLOUD_ENABLED}" ]; then sonar-scanner; fi
+  - shellcheck tests/setup.sh && ./tests/setup.sh
+  - shellcheck tests/build.sh && ./tests/build.sh
+  - shellcheck tests/run.sh && ./tests/run.sh
+  - if [! -z "${SONARCLOUD_ENABLED:-}" ]; then sonar-scanner; fi
   - if [ ! -z "${COVERAGE_FLAG:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
