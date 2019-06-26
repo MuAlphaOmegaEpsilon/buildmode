@@ -12,7 +12,7 @@ matrix:
     - os: linux
       compiler: g++
       env: 
-        - COVERAGE_FLAG="-DCOVERAGE_FLAG=-coverage"
+        - COVERAGE
       addons:
         sonarcloud:
           organization: "mualphaomegaepsilon-github"
@@ -22,9 +22,9 @@ matrix:
     - os: windows
 
 script:
-  - if [ -n "${COVERAGE_FLAG:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
+  - if [ -n "${COVERAGE:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
   - shellcheck tests/setup.sh && ./tests/setup.sh
   - shellcheck tests/build.sh && ./tests/build.sh
   - shellcheck tests/run.sh && ./tests/run.sh
   - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
-  - if [ -n "${COVERAGE_FLAG:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
+  - if [ -n "${COVERAGE:-}" ]; then bash <(curl -s https://codecov.io/bash); fi

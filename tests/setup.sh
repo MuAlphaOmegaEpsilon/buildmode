@@ -15,4 +15,9 @@ if [ -d build ]; then
 fi
 mkdir build
 cd build
-cmake ../.. -DBUILD_TESTING=ON "${COVERAGE_FLAG}"
+
+if [ -n "${COVERAGE:-}" ]
+	cmake ../.. -DBUILD_TESTING=ON -DCOVERAGE_FLAG=-coverage	
+else
+	cmake ../.. -DBUILD_TESTING=ON
+fi
