@@ -22,4 +22,4 @@ else
 	BUILD_WRAP="build-wrapper-linux-x86-64 --out-dir sonarcloud-dir "
 fi
 
-"${BUILD_WRAP}"cmake --build . -j2
+"${BUILD_WRAP}"cmake --build -j2 .
