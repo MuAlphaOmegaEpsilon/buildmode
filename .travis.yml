@@ -3,6 +3,7 @@ language: cpp
 dist: xenial
 
 matrix:
+  fast_finish: true
   include:
 
     - os: linux
@@ -21,7 +22,6 @@ matrix:
     - os: windows
 
 script:
-  - set -e
   - if [ -n "${COVERAGE:-}" ]; then ./tests/shellcheck.sh fi
   - if [ -n "${COVERAGE:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
   - ./tests/setup.sh
