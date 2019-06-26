@@ -16,4 +16,10 @@ if [ ! -d build ]; then
 fi
 cd build
 
-cmake --build . -j2
+if [ -z "${SONAR_SCANNER_HOME:-}" ]; then
+	BUILD_WRAP=""
+else
+	BUILD_WRAP="build-wrapper-linux-x86-64 --out-dir sonarcloud-dir "
+fi
+
+"${BUILD_WRAP}"cmake --build . -j2

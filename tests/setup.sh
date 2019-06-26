@@ -15,10 +15,4 @@ if [ -d build ]; then
 fi
 mkdir build
 cd build
-
-BUILD_WRAP=""
-if [ -n "${SONAR_SCANNER_HOME:-}" ]; then
-	BUILD_WRAP="build-wrapper-linux-x86-64 --out-dir sonarcloud-dir "
-fi
-
-"${BUILD_WRAP}"cmake ../.. -DBUILD_TESTING=ON "${COVERAGE_FLAG}"
+cmake ../.. -DBUILD_TESTING=ON "${COVERAGE_FLAG}"
