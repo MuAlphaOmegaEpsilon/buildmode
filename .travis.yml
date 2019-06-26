@@ -22,7 +22,7 @@ matrix:
     - os: windows
 
 script:
-  - if [ -n "${COVERAGE:-}" ]; then ./tests/shellcheck.sh fi
+  - if [ -n "${COVERAGE:-}" ]; then ./tests/shellcheck.sh; fi
   - if [ -n "${COVERAGE:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
   - ./tests/setup.sh
   - ./tests/build.sh
