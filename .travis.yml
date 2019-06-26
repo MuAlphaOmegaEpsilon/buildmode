@@ -22,9 +22,10 @@ matrix:
 
 script:
   - set -e
+  - if [ -n "${COVERAGE:-}" ]; then ./tests/shellcheck.sh fi
   - if [ -n "${COVERAGE:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
-  - shellcheck tests/setup.sh && ./tests/setup.sh
-  - shellcheck tests/build.sh && ./tests/build.sh
-  - shellcheck tests/run.sh && ./tests/run.sh
+  - ./tests/setup.sh
+  - ./tests/build.sh
+  - ./tests/run.sh
   - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
   - if [ -n "${COVERAGE:-}" ]; then bash <(curl -s https://codecov.io/bash); fi

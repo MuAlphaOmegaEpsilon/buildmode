@@ -7,4 +7,5 @@
 !/build.sh
 !/run.sh
 !/setup.sh
+!/shellcheck.sh
 !/.gitignore
