@@ -21,13 +21,10 @@ matrix:
 
     - os: windows
 
-jobs:
-  include:
-
-    - stage: test
-      script: if [ ! -z "${COVERAGE_FLAG:-}" ]; then sudo rm /usr/bin/gcov && ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
-      script: ./tests/setup.sh
-      script: ./tests/build.sh
-      script: ./tests/run.sh
-      script: if [! -z "${SONARCLOUD_ENABLED}" ]; then sonar-scanner; fi
-      script: if [ ! -z "${COVERAGE_FLAG:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
+script:
+  - if [ ! -z "${COVERAGE_FLAG:-}" ]; then sudo rm /usr/bin/gcov && ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
+  - ./tests/setup.sh
+  - ./tests/build.sh
+  - ./tests/run.sh
+  - if [! -z "${SONARCLOUD_ENABLED}" ]; then sonar-scanner; fi
+  - if [ ! -z "${COVERAGE_FLAG:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
