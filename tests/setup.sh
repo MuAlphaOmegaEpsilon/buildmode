@@ -17,7 +17,7 @@ mkdir build
 cd build
 
 BUILD_WRAP=""
-if [ ! -n "${SONAR_SCANNER_HOME:-}" ]; then
+if [ -n "${SONAR_SCANNER_HOME:-}" ]; then
 	BUILD_WRAP="build-wrapper-linux-x86-64 --out-dir sonarcloud-dir "
 fi
 
