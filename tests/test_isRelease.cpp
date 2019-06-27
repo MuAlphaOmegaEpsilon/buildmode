@@ -1,9 +1,8 @@
-#include <stdlib.h>
 #include <buildmode.hpp>
 
 int main ()
 {
 	if (BuildMode::isRelease && !BuildMode::isDebug)
-		return EXIT_SUCCESS;
-	return EXIT_FAILURE;
+		return 0;
+	return 1;
 }
