@@ -27,5 +27,5 @@ script:
   - ./tests/setup.sh
   - ./tests/build.sh
   - ./tests/run.sh
-  - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
+  - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner -X; fi
   - if [ -n "${COVERAGE:-}" ]; then bash <(curl -s https://codecov.io/bash); fi

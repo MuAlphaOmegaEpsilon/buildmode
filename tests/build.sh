@@ -17,7 +17,6 @@ fi
 cd build
 
 if [ -n "${SONAR_SCANNER_HOME:-}" ]; then
-	mkdir sonarcloud-dir
 	build-wrapper-linux-x86-64 --out-dir sonarcloud-dir cmake --build .
 else
 	cmake --build .
