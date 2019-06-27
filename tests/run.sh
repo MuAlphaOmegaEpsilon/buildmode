@@ -17,3 +17,6 @@ fi
 cd build
 
 ctest -j2
+ls -a
+cd ..
+ls -a
