@@ -10,5 +10,6 @@
 !/CMakeLists.txt
 !/LICENSE
 !/README.md
+!/sonar-project.properties
 !/.gitignore
 !/.travis.yml

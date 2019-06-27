@@ -1,9 +1,9 @@
 language: cpp
 
 dist: xenial
-sudo: false
 
 matrix:
+  fast_finish: true
   include:
 
     - os: linux
@@ -12,9 +12,8 @@ matrix:
     - os: linux
       compiler: g++
       env: 
-        - CODECOV_TOKEN="785031cb-d414-4550-8c86-ae4bf6ecd5b4"
-        - SONAR_SCANNER="true"
-        addons:
+        - COVERAGE
+      addons:
         sonarcloud:
           organization: "mualphaomegaepsilon-github"
 
@@ -23,7 +22,10 @@ matrix:
     - os: windows
 
 script:
-  - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo rm /usr/bin/gcov; fi
-  - if [ ! -z "${CODECOV_TOKEN:-}" ]; then sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
-  - if [ ! -z "${SONAR_SCANNER:-}" ]; then sonar-scanner -Dsonar.projectKey=MuAlphaOmegaEpsilon_buildmode; fi
+  - if [ -n "${COVERAGE:-}" ]; then ./tests/shellcheck.sh; fi
+  - if [ -n "${COVERAGE:-}" ]; then sudo rm /usr/bin/gcov && sudo ln -s /usr/bin/gcov-5 /usr/bin/gcov; fi
+  - ./tests/setup.sh
+  - ./tests/build.sh
   - ./tests/run.sh
+  - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
+  - if [ -n "${COVERAGE:-}" ]; then bash <(curl -s https://codecov.io/bash); fi
