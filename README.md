@@ -3,7 +3,6 @@
 A C++11 library to easily handle code paths for Debug and Release at compile time.
 
 [![Travis CI](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode.svg?branch=master)](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode/) 
-[![codecov](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode/branch/master/graph/badge.svg)](https://codecov.io/gh/MuAlphaOmegaEpsilon/buildmode) 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/repo-github-green.svg)](https://github.com/MuAlphaOmegaEpsilon/buildmode)
 ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/MuAlphaOmegaEpsilon/buildmode.svg?colorB=%23ff0000&label=size)
