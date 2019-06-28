@@ -17,10 +17,3 @@ fi
 cd build
 
 ctest -j2
-
-if [ -n "${SONAR_SCANNER_HOME:-}" ]; then
-	mkdir coverage
-	cp -a CMakeFiles/isDebug.dir/tests/. coverage/
-	cp -a CMakeFiles/isRelease.dir/tests/. coverage/
-	cd ../.. && sonar-scanner
-fi
