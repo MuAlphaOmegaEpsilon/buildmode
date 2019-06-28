@@ -28,4 +28,4 @@ script:
   - ./tests/build.sh
   - ./tests/run.sh
   - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
-  - ls build/tests/build/CMakeFiles/isDebug.dir/tests
+  - ls tests/build/CMakeFiles/isDebug.dir/tests
