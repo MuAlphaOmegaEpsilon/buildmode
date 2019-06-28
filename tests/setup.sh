@@ -17,7 +17,7 @@ mkdir build
 cd build
 
 if [ -n "${COVERAGE:-}" ]; then
-	cmake ../.. -DBUILD_TESTING=ON -DCOVERAGE_FLAG=-coverage	
+	cmake ../.. -DBUILD_TESTING=ON -DCOVERAGE_FLAG=--coverage	
 else
 	cmake ../.. -DBUILD_TESTING=ON
 fi
