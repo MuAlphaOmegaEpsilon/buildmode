@@ -19,5 +19,5 @@ cd build
 ctest -j2
 
 if [ -n "${SONAR_SCANNER_HOME:-}" ]; then 
-	sonar-scanner
+	cd ../.. && sonar-scanner
 fi
