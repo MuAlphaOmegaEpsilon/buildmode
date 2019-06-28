@@ -28,3 +28,4 @@ script:
   - ./tests/build.sh
   - ./tests/run.sh
   - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then sonar-scanner; fi
+  - if [ -n "${SONAR_SCANNER_HOME:-}" ]; then cd tests/sonarcloud-dir && ls -a; fi
