@@ -39,8 +39,8 @@ TARGET_INCLUDE_DIRECTORIES	(buildmode INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 IF (BUILD_TESTING)
 	ENABLE_TESTING()
 	
-	ADD_EXECUTABLE (isDebug "${CMAKE_CURRENT_SOURCE_DIR}/tests/debug_mode.cpp")
-	ADD_EXECUTABLE (isRelease "${CMAKE_CURRENT_SOURCE_DIR}/tests/release_mode.cpp")
+	ADD_EXECUTABLE (isDebug "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_isDebug.cpp")
+	ADD_EXECUTABLE (isRelease "${CMAKE_CURRENT_SOURCE_DIR}/tests/test_isRelease.cpp")
 
 	TARGET_LINK_LIBRARIES (isDebug buildmode ${COVERAGE_FLAG})
 	TARGET_LINK_LIBRARIES (isRelease buildmode ${COVERAGE_FLAG})

@@ -2,10 +2,10 @@
 /*
 
 # ...except these files down here...
-!/debug_mode.cpp
-!/release_mode.cpp
 !/build.sh
 !/run.sh
 !/setup.sh
 !/shellcheck.sh
+!/test_isDebug.cpp
+!/test_isRelease.cpp
 !/.gitignore
