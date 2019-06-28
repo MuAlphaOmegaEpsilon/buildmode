@@ -1,11 +1,28 @@
 # BuildMode 
 
+
+
 A C++11 library to easily handle code paths for Debug and Release at compile time.
+
+
 
 [![Travis CI](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode.svg?branch=master)](https://travis-ci.com/MuAlphaOmegaEpsilon/buildmode/) 
 [![MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![GitHub](https://img.shields.io/badge/repo-github-green.svg)](https://github.com/MuAlphaOmegaEpsilon/buildmode)
 ![GitHub repo size in bytes](https://img.shields.io/github/repo-size/MuAlphaOmegaEpsilon/buildmode.svg?colorB=%23ff0000&label=size)
+
+#### [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/dashboard?id=MuAlphaOmegaEpsilon_buildmode)
+
+![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=alert_status)
+![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=sqale_rating)
+![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=security_rating)
+![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=reliability_rating)
+![Coverage](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=coverage)
+![Bugs](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=bugs)
+![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=code_smells)
+![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=vulnerabilities)
+![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=sqale_index)
+![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=MuAlphaOmegaEpsilon_buildmode&metric=ncloc)
 
 ## How to use
 ```cpp
@@ -55,4 +72,4 @@ Note that this library's *CMakeLists.txt* won't compile testing sources unless `
 This library is available to anybody free of charge, under the terms of MIT License (see [LICENSE](./LICENSE)).
 
 ## Author
- [<img src="https://avatars0.githubusercontent.com/u/26225010?s=460&v=4" alt="MuAlphaOmegaEpsilon" width=300 style="border-radius:50%;">](https://github.com/MuAlphaOmegaEpsilon)
+ [<img src="https://avatars0.githubusercontent.com/u/26225010?s=460&v=4" alt="MuAlphaOmegaEpsilon" width=300 style="border-radius:150px">](https://github.com/MuAlphaOmegaEpsilon)
